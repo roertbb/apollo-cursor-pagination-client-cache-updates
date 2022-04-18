@@ -1,0 +1,10 @@
+query TodosBatch($limit: Int!, $cursor: String) {
+  todosBatch(input: { limit: $limit, cursor: $cursor }) {
+    todos {
+      id
+      name
+      completed
+    }
+    cursor
+  }
+}

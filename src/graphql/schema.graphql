@@ -1,0 +1,38 @@
+type Todo {
+  id: String!
+  name: String!
+  description: String!
+  completed: Boolean!
+}
+
+input BatchInput {
+  limit: Int!
+  cursor: String
+}
+
+type TodoResults {
+  todos: [Todo!]!
+  cursor: String
+}
+
+type Query {
+  todo(id: String!): Todo!
+  todosBatch(input: BatchInput!): TodoResults!
+}
+
+input TodoCreateInput {
+  name: String!
+  description: String!
+  completed: Boolean
+}
+
+input TodoUpdateInput {
+  id: String!
+  completed: Boolean!
+}
+
+type Mutation {
+  createTodo(input: TodoCreateInput!): Todo!
+  updateTodo(input: TodoUpdateInput!): Todo!
+  deleteTodo(id: String!): Boolean!
+}

@@ -1,0 +1,3 @@
+mutation DeleteTodo($id: String!) {
+  deleteTodo(id: $id)
+}

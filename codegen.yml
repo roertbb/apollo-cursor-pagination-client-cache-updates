@@ -1,0 +1,15 @@
+generates:
+  src/graphql/generatedTypes.ts:
+    schema: src/graphql/schema.graphql
+    overwrite: true
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    documents: "./src/**/*.graphql"
+    config:
+      useIndexSignature: true
+      withHooks: true
+      hooksImportFrom: "react-apollo-hooks"
+      strictScalars: true
+      defaultScalarType: "unknown"
